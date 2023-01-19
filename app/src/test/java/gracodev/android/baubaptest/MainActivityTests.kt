@@ -17,4 +17,15 @@ class MainActivityTests {
         )
         assertEquals(expectedResult, validationResult)
     }
+
+    @Test
+    fun validateCredentials_AddValidCredentials_FailureValidation() {
+        val email = "carlos.correo.com"
+        val pass = "Carlos123"
+        val expectedResult = false
+        val validationResult = MainActivityRepositoryImpl().validateCredentials(
+            LoginData(email,pass)
+        )
+        assertEquals(expectedResult, validationResult)
+    }
 }
