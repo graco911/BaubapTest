@@ -4,4 +4,9 @@
     <string name="login_button_text">Iniciar Sesión</string>
     <string name="login_input_email_hint_text">Correo electrónico</string>
     <string name="login_input_password_hint_text">Contraseña</string>
+    <string name="main_activity_dialog_title_text">Information</string>
+    <string name="main_activity_login_success_text">Success Login</string>
+    <string name="main_activity_error_message_text">Check your credentials</string>
+    <string name="main_activity_dialog_accept_button_text">Accept</string>
+    <string name="viewmodel_error_message_text">Add missing data</string>
 </resources>
