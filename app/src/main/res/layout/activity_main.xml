@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activities.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_8_4"
-        android:layout_marginEnd="@dimen/size_8_4"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/login_input_email_hint_text"
-        android:minHeight="@dimen/size_8_6"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:autofillHints="" />
+    <data>
+        <variable
+            name="mainActivityViewModel"
+            type="gracodev.android.baubaptest.ui.viewmodels.MainActivityViewModel" />
+    </data>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_8_2"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/login_input_password_hint_text"
-        android:minHeight="@dimen/size_8_6"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:autofillHints="" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_8_4"
-        android:layout_marginTop="@dimen/size_8_2"
-        android:layout_marginEnd="@dimen/size_8_4"
-        android:text="@string/login_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_8_4"
+            android:layout_marginEnd="@dimen/size_8_4"
+            android:ems="10"
+            android:text="@={mainActivityViewModel.onGetEmail()}"
+            android:inputType="textEmailAddress"
+            android:hint="@string/login_input_email_hint_text"
+            android:minHeight="@dimen/size_8_6"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:autofillHints="" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_8_2"
+            android:ems="10"
+            android:text="@={mainActivityViewModel.onGetPassword()}"
+            android:inputType="textPassword"
+            android:hint="@string/login_input_password_hint_text"
+            android:minHeight="@dimen/size_8_6"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            app:layout_constraintEnd_toEndOf="@id/editTextTextEmailAddress"
+            app:layout_constraintStart_toStartOf="@id/editTextTextEmailAddress"
+            app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:autofillHints="" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_8_4"
+            android:layout_marginTop="@dimen/size_8_2"
+            android:layout_marginEnd="@dimen/size_8_4"
+            android:text="@string/login_button_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/editTextTextPassword"
+            app:layout_constraintStart_toStartOf="@id/editTextTextPassword"
+            app:layout_constraintTop_toBottomOf="@id/editTextTextPassword" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
