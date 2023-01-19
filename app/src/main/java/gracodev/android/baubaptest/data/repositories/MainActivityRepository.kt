@@ -1,5 +1,6 @@
 package gracodev.android.baubaptest.data.repositories
 
+import androidx.annotation.VisibleForTesting
 import gracodev.android.baubaptest.data.models.LoginData
 import gracodev.android.baubaptest.data.usescases.UseCaseResult
 
@@ -18,8 +19,10 @@ class MainActivityRepositoryImpl() : MainActivityRepository {
         }
     }
 
-    private fun validateCredentials(loginData: LoginData): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(loginData.email).matches()
+    @VisibleForTesting
+    internal fun validateCredentials(loginData: LoginData): Boolean {
+        val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
+        return emailRegex.toRegex().matches(loginData.email)
                 && loginData.password.isNotEmpty()
     }
 }
