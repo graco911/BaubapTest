@@ -1,6 +1,6 @@
 # Baubap TEST
 
-Test for baubap candidature postulation.
+Login Test using clean architecure, mvvm & koin.
 
 ## Introduction
 
